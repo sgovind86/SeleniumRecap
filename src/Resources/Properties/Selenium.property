@@ -1,4 +1,4 @@
 URL = http://automationpractice.com/index.php
-browser = edgeDriver
+browser = chrome
 
 
