@@ -1,4 +1,6 @@
 URL = http://automationpractice.com/index.php
 browser = chrome
+username = sankarg86@gmail.com
+password = TestAutomation1!
 
 
