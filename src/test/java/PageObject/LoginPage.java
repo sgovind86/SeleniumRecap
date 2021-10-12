@@ -12,11 +12,17 @@ public class LoginPage extends Global{
     @FindBy(id ="email")
     WebElement emailTextBox;
 
-    @FindBy(id = "password")
+    @FindBy(id = "passwd")
     WebElement passwordTextBox;
 
     @FindBy(id = "SubmitLogin")
     WebElement signInButton;
+
+    public LoginPage(WebDriver driver){
+        super(driver);
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
     public void inputEmail(String myEmail){
         emailTextBox.sendKeys(myEmail);
@@ -26,9 +32,9 @@ public class LoginPage extends Global{
         passwordTextBox.sendKeys(password);
     }
 
-    public MyAccountPage clkSubmitButton(){
+    public void clkSubmitButton(){
         signInButton.click();
-        return PageFactory.initElements(driver, MyAccountPage.class);
+ //       return PageFactory.initElements(driver, MyAccountPage.class);
 
     }
 

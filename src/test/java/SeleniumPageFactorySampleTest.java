@@ -39,21 +39,26 @@ public class SeleniumPageFactorySampleTest {
         }
         driver.get(CommonUtils.getPropValue("URL"));
         System.out.println(driver.getTitle());
-        //       PageFactory.initElements(driver, HomePage.class);
     }
 
     @Test
     public void myLoginAndMyAccountPageTest() throws IOException, InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(5000);
+        homePage = new HomePage(driver);
         homePage.clkSignIn();
+        loginPage = new LoginPage(driver);
         loginPage.inputEmail(CommonUtils.getPropValue("username"));
         loginPage.inputPassword(CommonUtils.getPropValue("password"));
         loginPage.clkSubmitButton();
+        myAccountPage = new MyAccountPage(driver);
         myAccountPage.clkMyAddress();
+        global = new Global(driver);
+        global.clkSignOut();
     }
 
     @AfterTest
-    public void quitBrowserTest(){
+    public void quitBrowserTest() throws InterruptedException {
+        Thread.sleep(5000);
         driver.close();
     }
 }

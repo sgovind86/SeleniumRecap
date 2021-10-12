@@ -12,9 +12,15 @@ public class HomePage extends Global{
     @FindBy(className = "login")
     WebElement signIn;
 
-    public LoginPage clkSignIn(){
+    public HomePage(WebDriver driver){
+        super(driver);
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void clkSignIn(){
         signIn.click();
-        return PageFactory.initElements(driver, LoginPage.class);
+//        return PageFactory.initElements(driver, LoginPage.class);
     }
 
 

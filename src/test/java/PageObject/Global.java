@@ -1,9 +1,13 @@
 package PageObject;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class Global {
+
+    WebDriver driver;
 
     @FindBy(linkText = "Sign out")
     WebElement signOutLink;
@@ -11,10 +15,14 @@ public class Global {
     @FindBy(linkText = "Contact us")
     WebElement contactUsLink;
 
+    public Global(WebDriver driver){
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
     public void clkSignOut(){
         signOutLink.click();
     }
-
 
 
 
